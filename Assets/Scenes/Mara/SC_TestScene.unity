@@ -566,7 +566,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b007bfc8a68976143b40bd85faec3368, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.139
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -19626,6 +19626,8 @@ GameObject:
   m_Component:
   - component: {fileID: 670971079}
   - component: {fileID: 670971078}
+  - component: {fileID: 670971084}
+  - component: {fileID: 670971083}
   - component: {fileID: 670971077}
   - component: {fileID: 670971080}
   - component: {fileID: 670971081}
@@ -19644,7 +19646,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670971076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6278d9448d7ff7418eef24cf093dbfe, type: 3}
   m_Name: 
@@ -19779,6 +19781,36 @@ MonoBehaviour:
   mGravityScale: 9.8
   mArrowAudioSource: {fileID: 1254556963}
   mBowShotAudioSource: {fileID: 361042605}
+--- !u!114 &670971083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670971076}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c7ec9e8d1fe5547ac14128e4737cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mController: {fileID: 670971078}
+  mAnimator: {fileID: 542784380}
+  mCharacterSpeed: 40
+--- !u!114 &670971084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670971076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5236dffee9d24c44aa7380e711a5f355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mController: {fileID: 670971078}
+  mAnimator: {fileID: 542784380}
+  mCharacterSpeed: 40
 --- !u!1 &697715655
 GameObject:
   m_ObjectHideFlags: 0
@@ -21530,12 +21562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxLenght: 30
-  mCurrentLenght: 0
-  mRealCurrentLenght: 0
   mStart: {x: 0, y: 0, z: 0}
   mEnd: {x: 0, y: 0, z: 0}
   mMesh: {fileID: 435895357}
-  mStringPoints: []
   mStringCollisionLayerMask:
     serializedVersion: 2
     m_Bits: 8

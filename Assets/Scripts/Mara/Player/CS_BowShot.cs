@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class CS_BowShot : MonoBehaviour
@@ -37,8 +38,8 @@ public class CS_BowShot : MonoBehaviour
   public float mMaxStringLenght = 15.0f;
   public float mCurrentStringLenght = 0.0f;
 
-  float mChangeStringSizeInput = 0.0f;
-  public float mChangeStringSizeSpeed = 1.0f;
+  //float mChangeStringSizeInput = 0.0f;
+  //public float mChangeStringSizeSpeed = 1.0f;
 
   Vector3 mLastPos;
 
@@ -163,9 +164,9 @@ public class CS_BowShot : MonoBehaviour
         mString.mEnd = mArrowMesh.transform.position;
       }
 
-      if (mString.mCurrentLenght > mCurrentStringLenght)
+      if (mString.RopeLenght > mCurrentStringLenght)
       {
-        mCurrentStringLenght = mString.mCurrentLenght;
+        mCurrentStringLenght = mString.RopeLenght;
       }
 
       float dirAngle = Mathf.Atan2(mShotDirForce.y, mShotDirForce.x);
@@ -222,8 +223,8 @@ public class CS_BowShot : MonoBehaviour
     }
     else if (realL > mString.mMaxLenght + 0.01f)
     {
-      Vector3 pullDir = (mString.mStringPoints[1]
-                       - mString.mStringPoints[0]).normalized;
+      Vector3 pullDir = (mString.Points[1]
+                       - mString.Points[0]).normalized;
       Vector2 pullDir2 = new Vector2(pullDir.x, 0.0f);
 
       //transform.position += pullDir;
@@ -246,9 +247,9 @@ public class CS_BowShot : MonoBehaviour
 
       float pullForce = mString.mMaxLenght - mString.GetRealLength();
 
-      int stringPoinsCount = mString.mStringPoints.Count;
-      Vector3 pullDir = (mString.mStringPoints[stringPoinsCount - 1]
-                       - mString.mStringPoints[stringPoinsCount - 2]).normalized
+      int stringPoinsCount = mString.Points.Count;
+      Vector3 pullDir = (mString.Points[stringPoinsCount - 1]
+                       - mString.Points[stringPoinsCount - 2]).normalized
                       * pullForce;
 
       dynScrip.PullObject(pullDir);
@@ -274,9 +275,9 @@ public class CS_BowShot : MonoBehaviour
 
       float pullForce = mString.mMaxLenght - mString.GetRealLength();
 
-      int stringPoinsCount = mString.mStringPoints.Count;
-      Vector3 pullDir = (mString.mStringPoints[stringPoinsCount - 1]
-                       - mString.mStringPoints[stringPoinsCount - 2]).normalized
+      int stringPoinsCount = mString.Points.Count;
+      Vector3 pullDir = (mString.Points[stringPoinsCount - 1]
+                       - mString.Points[stringPoinsCount - 2]).normalized
                       * pullForce;
 
       dynScrip.PullObject(pullDir);
@@ -285,8 +286,8 @@ public class CS_BowShot : MonoBehaviour
     {
       mLastPendulePos = transform.position;
 
-      int stringPoinsCount = mString.mStringPoints.Count;
-      Vector3 pivotPoint = mString.mStringPoints[1];
+      int stringPoinsCount = mString.Points.Count;
+      Vector3 pivotPoint = mString.Points[1];
       Vector3 finalPoint = transform.position;
       Vector3 dir = finalPoint - pivotPoint;
 
@@ -406,6 +407,6 @@ public class CS_BowShot : MonoBehaviour
 
   void RestartLevel()
   {
-    Application.LoadLevel("SC_TestScene");
+    SceneManager.LoadScene("SC_TestScene");
   }
 }
